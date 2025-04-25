@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+            <span class="music-text">Play Music</span>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="cintakupadamubersemikembali.mp4" type="audio/mpeg" />
+            Browser tidak mendukung elemen audio.
+        </audio>
+        <div class="music-bubbles-container"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">Portofolio_<span>Kanesuuu.</span></a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">My Life</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content hidden">
+            <div class="profile-container">
+                <div class="photo-frame rgb-border">
+                    <img src="kanesuuu.jpg" alt="Your Name" class="profile-photo" />
+                    <div class="rgb-overlay"></div>
+                </div>
+                <div class="profile-info">
+                    <span class="member-tag" id="wib-clock">WIB: 19:00</span>
+<h1><span class="typed-text"></span><span class="cursor">|</span></h1>
+                    <h3>GANES <span>KANESUUUU</span></h3>
+                    <p class="quote">"Aku Wawan."</p>
+                    <p>
+                        Terimakasih Sudah Berkunjung Ke Sini :).
+                    </p>
+                    <div class="date" id="current-date">05/03/2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text hidden">
+                <h2>[Ngopi sore, sambil mikirin masa depan yang belum tentu."
+                    Tapi tenang aja, aku punya tekad <span>Dan Tugas Awokawok</span>]</h2>
+                <p>"Duduk sebentar, tarik napas. Dunia belum berakhir, hanya butuh rehat"</p>
+                <p>
+                    Searching for a Reflection Beneath the Waters.
+                    <a href="#" class="world-link">World</a>
+                </p>
+                <p>Empty Seek!</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section id="projects" class="projects">
+        <h2 class="hidden">KEHIDUPAN <span>AKU</span></h2>
+        <div class="portfolio-filter">
+            <button data-filter="all">All</button>
+            <button data-filter="design">Design</button>
+            <button data-filter="web">Web</button>
+            <button data-filter="art">Art</button>
+        </div>
+        <div class="project-container">
+            <div class="project-card hidden rgb-hover" data-category="design">
+                <img src="TUP.png" alt="You Could Come, Or Else I'll Be Sad!" class="project-photo" />
+                <h3>[UNIVERSITAS]</h3>
+                <p>Berkuliah Di Telkom University Purwokerto Sejak 2023-2025</p>
+                <p><a href="https://purwokerto.telkomuniversity.ac.id/" target="_blank" rel="noopener noreferrer">https://purwokerto.telkomuniversity.ac.id/</a></p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card hidden rgb-hover" data-category="art">
+                <img src="Cosplay.jpg" alt="Overlooking for Flying Together" class="project-photo" />
+                <h3>[COSPLAY]</h3>
+                <p>"AKU memiliki ketertarikan besar pada dunia cosplay — bukan sekadar mengenakan kostum, tapi bagaimana AKU bisa menghidupkan karakter fiksi melalui detail, ekspresi, dan kreativitas. Cosplay melatih AKU untuk lebih teliti, percaya diri, dan mampu tampil di depan umum dengan karakter yang kuat. Ini bukan hanya hobi, tapi bentuk seni dan ekspresi diri yang terus berkembang dalam hidup AKU."
+
+                </p>
+                <p>Purwokerto 19.10 WIB - 25/04/10</p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card hidden rgb-hover" data-category="web">
+                <img src="Cofee.jpg" alt="Searching for a Reflection Beneath the Waters" class="project-photo" />
+                <h3>[COFEE]</h3>
+                <p>“Ngopi sambil nugas—kombinasi antara kewarasan dan kejar deadline.”
+
+                    Tugas numpuk? Tenang. Selama ada kopi, aku masih bisa senyum.
+                    
+                    Nugas itu berat. Tapi kopi bikin semua terasa mungkin.
+                    
+                    Kadang ide nggak datang dari buku... tapi dari gelas kopi yang temani aku sampai larut.
+                    
+                    “Antara tugas dan ngopi, aku pilih... ya dua-duanya, biar seimbang.”</p>
+                <p>KOPI FAVORITKUU : KOPI KENANGAN/FOREE/POINTKU</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="hidden">Kasih Aku <span>Pertanyaan</span></h2>
+        <form class="contact-form">
+            <div class="input-box hidden">
+                <input type="text" required />
+                <label>Nama</label>
+            </div>
+            <div class="input-box hidden">
+                <input type="email" required />
+                <label>Email</label>
+            </div>
+            <div class="input-box hidden">
+                <textarea required></textarea>
+                <label>Message</label>
+            </div>
+            <button type="submit" class="btn hidden rgb-glow">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" class="rgb-hover"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="rgb-hover"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="rgb-hover"><i class="fab fa-github"></i></a>
+            <a href="#" class="rgb-hover"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; <span id="current-year">2024</span> Personal Portfolio. All rights reserved.</p>
+        <p class="closing-quote">“Terimakasih sudah melihat bagian kecil dari hidupku. Aku tidak sempurna, tapi aku berkembang.”</p>
+        <canvas id="footer-particles"></canvas>
+    </footer>
+
+    <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+    <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
+</body>
+</html>

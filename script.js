@@ -1,9 +1,21 @@
-// Theme Toggle
+// Commented out as scroll buttons were removed in UI redesign
+/*
+function scrollLeft(containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.scrollLeft -= container.offsetWidth;
+    }
+}
+
+function scrollRight(containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.scrollLeft += container.offsetWidth;
+    }
+}
+*/
+
 const themeToggle = document.querySelector('.theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    localStorage.setItem('lightTheme', document.body.classList.contains('light-theme'));
-});
 
 // Check saved theme preference
 if (localStorage.getItem('lightTheme') === 'true') {
@@ -31,10 +43,16 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Header Scroll Effect
+// Header Scroll Effect - Throttled
+let scrollTimeout;
 window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    header.classList.toggle('scrolled', window.scrollY > 50);
+    if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            scrollTimeout = null;
+        }, 16); // ~60fps
+    }
 });
 
 // Dynamic WIB Clock and Date
@@ -44,6 +62,7 @@ function updateWIBDateTime() {
         timeZone: 'Asia/Jakarta',
         hour: '2-digit',
         minute: '2-digit',
+        second: '2-digit',
         hour12: false
     };
     
@@ -103,7 +122,7 @@ function createBubble() {
 
 function startBubbles() {
     if (bubbleInterval) return;
-    bubbleInterval = setInterval(createBubble, 300);
+    bubbleInterval = setInterval(createBubble, 500);
 }
 
 function stopBubbles() {
@@ -215,7 +234,7 @@ document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
 
 // Portfolio Filter
 const filterButtons = document.querySelectorAll('.portfolio-filter button');
-const portfolioItems = document.querySelectorAll('.project-card');
+const portfolioItems = document.querySelectorAll('#projects .project-card');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -234,7 +253,7 @@ filterButtons.forEach(button => {
 document.addEventListener('DOMContentLoaded', () => {
     initMusicPlayer();
     updateWIBDateTime();
-    setInterval(updateWIBDateTime, 60000);
+    setInterval(updateWIBDateTime, 1000);
 
     // Animated Text Typing Effect
     const typedText = document.querySelector(".typed-text");
@@ -266,12 +285,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (textArray.length) setTimeout(type, 1000);
 
-    // Mouse Move Parallax Background
+    // Mouse Move Parallax Background - Throttled
     const hero = document.querySelector('.hero');
+    let parallaxTimeout;
     hero?.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 10;
-        const y = (e.clientY / window.innerHeight) * 10;
-        hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+        if (!parallaxTimeout) {
+            parallaxTimeout = requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth) * 10;
+                const y = (e.clientY / window.innerHeight) * 10;
+                hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+                parallaxTimeout = null;
+            });
+        }
     });
 
     // Automatic Dark/Light Mode Based on Time
@@ -281,6 +306,170 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         document.body.classList.remove('light-theme');
     }
+
+    // tsParticles Initialization with delay to ensure theme is set and library loaded
+    let particlesContainer;
+    let heroParticlesContainer;
+    setTimeout(() => {
+        if (typeof tsParticles !== 'undefined') {
+            const isLight = document.body.classList.contains('light-theme');
+            const config = {
+                background: {
+                    color: {
+                        value: "transparent",
+                    },
+                },
+                fpsLimit: 30,
+                interactivity: {
+                    events: {
+                        onClick: {
+                            enable: true,
+                            mode: "push",
+                        },
+                        onHover: {
+                            enable: true,
+                            mode: "repulse",
+                        },
+                        resize: true,
+                    },
+                    modes: {
+                        push: {
+                            quantity: 2,
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4,
+                        },
+                    },
+                },
+                particles: {
+                    color: {
+                        value: isLight ? "#000000" : "#ffffff",
+                    },
+                    links: {
+                        color: isLight ? "#000000" : "#ffffff",
+                        distance: 150,
+                        enable: true,
+                        opacity: 1,
+                        width: 1,
+                    },
+                    collisions: {
+                        enable: true,
+                    },
+                    move: {
+                        direction: "none",
+                        enable: true,
+                        outModes: {
+                            default: "bounce",
+                        },
+                        random: false,
+                        speed: 2,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 800,
+                        },
+                        value: 30,
+                    },
+                    opacity: {
+                        value: 1,
+                    },
+                    shape: {
+                        type: "circle",
+                    },
+                    size: {
+                        value: { min: 3, max: 8 },
+                    },
+                },
+                detectRetina: true,
+            };
+            tsParticles.load("tsparticles", config).then(container => {
+                particlesContainer = container;
+            }).catch(err => console.error('tsParticles init error:', err));
+
+            // Hero Particles Initialization
+            const heroConfig = {
+                background: {
+                    color: {
+                        value: "transparent",
+                    },
+                },
+                fpsLimit: 30,
+                particles: {
+                    color: {
+                        value: isLight ? ["#000080", "#4b0082", "#8b0000", "#000000"] : ["#00bfff", "#8a2be2", "#ff69b4", "#ffffff"],
+                    },
+                    links: {
+                        enable: false,
+                    },
+                    collisions: {
+                        enable: false,
+                    },
+                    move: {
+                        direction: "none",
+                        enable: true,
+                        outModes: {
+                            default: "out",
+                        },
+                        random: true,
+                        speed: 1,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 400,
+                        },
+                        value: 10,
+                    },
+                    opacity: {
+                        value: { min: 0.3, max: 0.8 },
+                        animation: {
+                            enable: true,
+                            speed: 1,
+                            sync: false,
+                        },
+                    },
+                    shape: {
+                        type: "circle",
+                    },
+                    size: {
+                        value: { min: 2, max: 6 },
+                    },
+                },
+                detectRetina: true,
+            };
+            tsParticles.load("hero-particles", heroConfig).then(container => {
+                heroParticlesContainer = container;
+            }).catch(err => console.error('Hero tsParticles init error:', err));
+        } else {
+            console.error('tsParticles not loaded');
+        }
+    }, 500);
+
+    // Consolidated Theme Toggle with Particle Update and Electric Glow
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.add('theme-transition-electric');
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('lightTheme', document.body.classList.contains('light-theme'));
+        setTimeout(() => {
+            document.body.classList.remove('theme-transition-electric');
+        }, 500);
+        setTimeout(() => {
+            const isLight = document.body.classList.contains('light-theme');
+            if (particlesContainer) {
+                particlesContainer.options.particles.color.value = isLight ? "#000000" : "#ffffff";
+                particlesContainer.options.particles.links.color = isLight ? "#000000" : "#ffffff";
+                particlesContainer.refresh();
+            }
+            if (heroParticlesContainer) {
+                heroParticlesContainer.options.particles.color.value = isLight ? ["#000080", "#4b0082", "#8b0000", "#000000"] : ["#00bfff", "#8a2be2", "#ff69b4", "#ffffff"];
+                heroParticlesContainer.refresh();
+            }
+        }, 100);
+    });
 });
 
 // Hover Sound FX on Buttons and Links
@@ -317,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
         particles.push(createParticle());
     }
 

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio_Kanesuuu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <div id="tsparticles"></div>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn">
+            <i class="fas fa-music"></i>
+            <span class="music-text">Play Music</span>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="cintakupadamubersemikembali.mp4" type="audio/mp4" />
+            Browser tidak mendukung elemen audio.
+        </audio>
+        <div class="music-bubbles-container"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">Portofolio_<span>Kanesuuu.</span></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">QUOT</a>
+            <a href="#projects">GALERRY</a>
+            <a href="#project">PROJECT</a>
+            <a href="#sertifikat">SERTIFIKAT</a>
+            <a href="#praktikum">PRAKTIKUM</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="hero-particles"></div>
+        <div class="hero-content hidden">
+            <div class="profile-container">
+                <div class="photo-frame rgb-border">
+                    <img data-src="kanesuuu.jpg" alt="Your Name" class="profile-photo" />
+                    <div class="rgb-overlay"></div>
+                </div>
+                <div class="profile-info">
+                    <span class="member-tag" id="wib-clock">WIB: 19:00</span>
+<h1><span class="typed-text"></span><span class="cursor">|</span></h1>
+                    <h3>GANES <span>KANESUUUU</span></h3>
+                    <p class="quote">"Aku Wawan."</p>
+                    <p>
+                        Terimakasih Sudah Berkunjung Ke Sini :).
+                    </p>
+                    <div class="date-wrapper" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div class="date" id="current-date">05/03/2024</div>
+                        <span class="lulusan" style="font-weight: bold; margin-left: 30px;">LULUSAN: Mi - MTs - SMAN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text hidden">
+                <h2>[Ngopi sore, sambil mikirin masa depan yang belum tentu."
+                    Tapi tenang aja, aku punya tekad <span>Dan Tugas Awokawok</span>]</h2>
+                <p>"Duduk sebentar, tarik napas. Dunia belum berakhir, hanya butuh rehat"</p>
+                <p>
+                    Searching for a Reflection Beneath the Waters.
+                    <a href="#" class="world-link">World</a>
+                </p>
+                <p>Empty Seek!</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section id="projects" class="projects">
+        <h2 class="hidden">GALLERY <span>AKU</span></h2>
+        <div class="portfolio-filter">
+            <button data-filter="all">All</button>
+            <button data-filter="design">Universitas</button>
+            <button data-filter="web">Cofee</button>
+            <button data-filter="art">Hobi</button>
+        </div>
+        <div class="project-container gallery-grid">
+            <div class="project-card hidden rgb-hover" data-category="design">
+                <img data-src="TUP.png" alt="You Could Come, Or Else I'll Be Sad!" class="project-photo" />
+                <h3>[UNIVERSITAS]</h3>
+                <p>Berkuliah Di Telkom University Purwokerto Sejak 2023-2025</p>
+                <p><a href="https://purwokerto.telkomuniversity.ac.id/" target="_blank" rel="noopener noreferrer">https://purwokerto.telkomuniversity.ac.id/</a></p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card hidden rgb-hover" data-category="art">
+                <img data-src="Cosplay.jpg" alt="Overlooking for Flying Together" class="project-photo" />
+                <h3>[COSPLAY]</h3>
+                <p>"AKU memiliki ketertarikan besar pada dunia cosplay — bukan sekadar mengenakan kostum, tapi bagaimana AKU bisa menghidupkan karakter fiksi melalui detail, ekspresi, dan kreativitas. Cosplay melatih AKU untuk lebih teliti, percaya diri, dan mampu tampil di depan umum dengan karakter yang kuat. Ini bukan hanya hobi, tapi bentuk seni dan ekspresi diri yang terus berkembang dalam hidup AKU."
+
+                </p>
+                <p>Purwokerto 19.10 WIB - 25/04/10</p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card hidden rgb-hover" data-category="web">
+                <img data-src="Cofee.jpg" alt="Searching for a Reflection Beneath the Waters" class="project-photo" />
+                <h3>[COFEE]</h3>
+                <p>“Ngopi sambil nugas—kombinasi antara kewarasan dan kejar deadline.”
+
+                    Tugas numpuk? Tenang. Selama ada kopi, aku masih bisa senyum.
+                    
+                    Nugas itu berat. Tapi kopi bikin semua terasa mungkin.
+                    
+                    Kadang ide nggak datang dari buku... tapi dari gelas kopi yang temani aku sampai larut.
+                    
+                    “Antara tugas dan ngopi, aku pilih... ya dua-duanya, biar seimbang.”</p>
+                <p>KOPI FAVORITKUU : KOPI KENANGAN/FOREE/POINTKU</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="projects">
+        <h2 class="hidden">LATEST NEWS <span>PROJECT</span></h2>
+        <h3 class="section-subtitle">Update Project</h3>
+        <div class="project-container news-grid">
+            <div class="project-card news-card hidden rgb-hover" data-category="project">
+                <img data-src="Universitas Telkom.jpeg" alt="Project 1" class="project-photo" />
+                <h3>Project 1</h3>
+                <p>Deskripsi project placeholder. Ini adalah contoh project yang saya kerjakan.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card news-card hidden rgb-hover" data-category="project">
+                <img data-src="TUP.png" alt="Project 2" class="project-photo" />
+                <h3>Project 2</h3>
+                <p>Project kedua dengan detail lebih lanjut.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sertifikat Section -->
+    <section id="sertifikat" class="projects">
+        <h2 class="hidden">SERTIFIKAT <span>AKU </span></h2>
+        <h3 class="section-subtitle">Sorotan Sertifikat</h3>
+        <div class="project-container news-grid">
+            <div class="project-card news-card hidden rgb-hover" data-category="sertifikat">
+                <img data-src="Cosplay.jpg" alt="Sertifikat 1" class="project-photo" />
+                <h3>Sertifikat 1</h3>
+                <p>Sertifikat placeholder untuk kursus atau pelatihan.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card news-card hidden rgb-hover" data-category="sertifikat">
+                <img data-src="Cofee.jpg" alt="Sertifikat 2" class="project-photo" />
+                <h3>Sertifikat 2</h3>
+                <p>Sertifikat kedua yang telah diperoleh.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Praktikum Section -->
+    <section id="praktikum" class="projects">
+        <h2 class="hidden">KUMPULAN YANG DIPELAJARI SELAMA <span>PRAKTIKUM</span></h2>
+        <h3 class="section-subtitle">Pengalaman Praktikum</h3>
+        <div class="project-container news-grid">
+            <div class="project-card news-card hidden rgb-hover" data-category="praktikum">
+                <img data-src="kanesuuu.jpg" alt="Praktikum 1" class="project-photo" />
+                <h3>Praktikum 1</h3>
+                <p>Pengalaman praktikum placeholder di perusahaan atau institusi.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+            <div class="project-card news-card hidden rgb-hover" data-category="praktikum">
+                <img data-src="Universitas Telkom.jpeg" alt="Praktikum 2" class="project-photo" />
+                <h3>Praktikum 2</h3>
+                <p>Praktikum kedua dengan deskripsi singkat.</p>
+                <div class="date">05/03/2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="hidden">Kasih Aku <span>Pesan Dung</span></h2>
+        <form class="contact-form">
+            <div class="input-box hidden">
+                <input type="text" required />
+                <label>Nama</label>
+            </div>
+            <div class="input-box hidden">
+                <input type="email" required />
+                <label>Email</label>
+            </div>
+            <div class="input-box hidden">
+                <textarea required></textarea>
+                <label>Pesan Buat Siganteng wkwk</label>
+            </div>
+            <button type="submit" class="btn hidden rgb-glow">Kirim Perasaan ehh.. Kirim Pesan maksudnya</button>
+        </form>
+    </section>
+
+    <!-- Animated Background Elements -->
+    <div class="luxury-bg-elements">
+        <div class="floating-crystal crystal-1"></div>
+        <div class="floating-crystal crystal-2"></div>
+        <div class="floating-crystal crystal-3"></div>
+        <div class="gold-sparkle sparkle-1"></div>
+        <div class="gold-sparkle sparkle-2"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/ganes2" class="rgb-hover" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/@kanesuuu_" class="rgb-hover" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@akaine.e" class="rgb-hover" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://linkedin.com/in/username" class="rgb-hover" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; <span id="current-year">2025</span> Personal Portofolio. BY_GANES.</p>
+        <p class="closing-quote">“Terimakasih sudah melihat bagian kecil dari hidupku. Aku tidak sempurna, tapi aku berkembang.”</p>
+        <canvas id="footer-particles"></canvas>
+    </footer>
+
+    <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+    <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
+</body>
+</html>
